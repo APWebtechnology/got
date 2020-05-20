@@ -69,7 +69,7 @@ function addEpisode(oEpisode) {
     sHtml += '<div class="card-header">Characters</div>' +
       '<ul class="list-group list-group-flush">';
     oEpisode.characters.forEach(function (sCharacter) {
-      sHtml += '<li class="list-group-item">' + sCharacter + '</li>';
+      sHtml += '<li class="list-group-item"><a href="./characters.html?char=' + sCharacter + '">' + sCharacter + '</a></li>';
     });
     sHtml += '</ul>';
   }
@@ -123,7 +123,10 @@ function addLocation(oLocation, nIndex) {
 
 function getCharacter() {
   var sChar = $("#charactername").val();
-  if (sChar !== undefined) {
+  if (sChar === '') {
+    sChar = getURLParameter('char');
+  }
+  if (sChar !== undefined && sChar !== '') {
     getData('char', sChar);
   }
 }
@@ -137,4 +140,18 @@ function getEpisode() {
 
 function getLocations() {
   getData('locations', '');
+}
+
+function getURLParameter(sParam) {
+  var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+    sURLVariables = sPageURL.split('&'),
+    sParameterName,
+    nI;
+
+  for (nI = 0; nI < sURLVariables.length; nI++) {
+    sParameterName = sURLVariables[nI].split('=');
+    if (sParameterName[0] === sParam) {
+      return sParameterName[1] === undefined ? true : sParameterName[1];
+    }
+  }
 }
