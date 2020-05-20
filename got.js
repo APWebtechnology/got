@@ -22,10 +22,11 @@ function addCharacter(oChar) {
     '</div>' +
     '<p class="card-text"></p>' +
     '<div class="card-header">Children</div>' +
-    '<ul class="list-group list-group-flush">' +
-    '<li class="list-group-item">Child one</li>' +
-    '<li class="list-group-item">Child two</li>' +
-    '</ul>' +
+    '<ul class="list-group list-group-flush">';
+  oChar.children.forEach(function (oChild) {
+    sHtml += '<li class="list-group-item">' + oChild + '</li>';
+  });
+  sHtml += '</ul>' +
     '</div>' +
     '</div>';
   $('#character').html(sHtml);
