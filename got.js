@@ -12,13 +12,13 @@ function getData(sChar) {
 
 function addCharacter(oChar) {
   let sHtml = '<div class="card text-center col">' +
-    '<img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" class="card-img-top">' +
+    '<img src="' + oChar.image + '" class="card-img-top">' +
     '<div class="card-body">' +
-    '<h5 class="card-title">Name</h5>' +
-    '<h6 class="card-subtitle mb-2 text-muted">House</h6 >' +
+    '<h5 class="card-title">' + oChar.name + '</h5>' +
+    '<h6 class="card-subtitle mb-2 text-muted">' + oChar.house + '</h6 >' +
     '<div class="row">' +
-    '<div class="col">Age</div>' +
-    '<div class="col">Sex</div>' +
+    '<div class="col">' + oChar.birth + '</div>' +
+    '<div class="col">' + oChar.gender + '</div>' +
     '</div>' +
     '<p class="card-text"></p>' +
     '<div class="card-header">Children</div>' +
